@@ -43,28 +43,34 @@
 - **Endpoint**: `POST /signup`
 - **Description**: 새로운 사용자를 시스템에 등록합니다.
 - **Request Body**:
+  ```
   {
-  "username": "newuser",
-  "password": "password1234",
-  "nickname": "mynickname"
+    "username": "newuser",
+    "password": "password1234",
+    "nickname": "mynickname"
   }
+  ```
+  
 - **Success Response (200 OK)**:
+  ```
   {
-  "username": "newuser",
-  "nickname": "mynickname",
-  "roles": [
-  {
-  "role": "USER"
+    "username": "newuser",
+    "nickname": "mynickname",
+    "roles": [
+      {
+        "role": "USER"
+      }
+    ]
   }
-  ]
-  }
+  ```
 
 - **Failure Response (409 Conflict)**:
+  ```
   {
-  "error": {
-  "code": "USER_ALREADY_EXISTS",
-  "message": "이미 가입된 사용자입니다."
-  }
+    "error": {
+      "code": "USER_ALREADY_EXISTS",
+      "message": "이미 가입된 사용자입니다."
+      }
   }
 
 
@@ -72,23 +78,29 @@
 - **Endpoint**: `POST /login`
 - **Description**: 사용자 인증 후 JWT를 발급합니다.
 - **Request Body**:
+  ```
   {
-  "username": "newuser",
-  "password": "password1234"
+    "username": "newuser",
+    "password": "password1234"
   }
+  ```
 
 - **Success Response (200 OK)**:
+  ```
   {
-  "token": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOi..."
+    "token": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOi..."
   }
+  ```
 
 - **Failure Response (401 Unauthorized)**:
+  ```
   {
-  "error": {
-  "code": "INVALID_CREDENTIALS",
-  "message": "아이디 또는 비밀번호가 올바르지 않습니다."
+    "error": {
+      "code": "INVALID_CREDENTIALS",
+      "message": "아이디 또는 비밀번호가 올바르지 않습니다."
+      }
   }
-  }
+  ```
 
 
 ---
@@ -102,7 +114,7 @@
 - **Path Variable**:
 - `userId` (Long): 권한을 부여할 사용자의 ID
 - **Success Response (200 OK)**:
-- ```
+  ```
   {
   "username": "someuser",
   "nickname": "somenickname",
