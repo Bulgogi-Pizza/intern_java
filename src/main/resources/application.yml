@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: intern_java
+
+jwt:
+  secret:
+    key: j6CxZmsftdsP1jJes2FdBpSea1p7ubWH
+  token:
+    expiration: 6000000
